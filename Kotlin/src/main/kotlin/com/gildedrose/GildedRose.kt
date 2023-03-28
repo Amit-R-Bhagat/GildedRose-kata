@@ -43,7 +43,7 @@ class GildedRose(var items: List<Item>) {
                             }
                         }
                     } else {
-                        currItem.quality = currItem.quality - currItem.quality
+                        currItem.quality = 0
                     }
                 } else {
                     if (currItem.quality < 50) {
