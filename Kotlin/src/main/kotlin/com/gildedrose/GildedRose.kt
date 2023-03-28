@@ -3,51 +3,51 @@ package com.gildedrose
 class GildedRose(var items: List<Item>) {
 
     fun updateQuality() {
-        for (i in items.indices) {
-            if (items[i].name != "Aged Brie" && items[i].name != "Backstage passes") {
-                if (items[i].quality > 0) {
-                    if (items[i].name != "Sulfuras") {
-                        items[i].quality = items[i].quality - 1
+        for (currItem in items) {
+            if (currItem.name != "Aged Brie" && currItem.name != "Backstage passes") {
+                if (currItem.quality > 0) {
+                    if (currItem.name != "Sulfuras") {
+                        currItem.quality = currItem.quality - 1
                     }
                 }
             } else {
-                if (items[i].quality < 50) {
-                    items[i].quality = items[i].quality + 1
+                if (currItem.quality < 50) {
+                    currItem.quality = currItem.quality + 1
 
-                    if (items[i].name == "Backstage passes") {
-                        if (items[i].sellIn < 11) {
-                            if (items[i].quality < 50) {
-                                items[i].quality = items[i].quality + 1
+                    if (currItem.name == "Backstage passes") {
+                        if (currItem.sellIn < 11) {
+                            if (currItem.quality < 50) {
+                                currItem.quality = currItem.quality + 1
                             }
                         }
 
-                        if (items[i].sellIn < 6) {
-                            if (items[i].quality < 50) {
-                                items[i].quality = items[i].quality + 1
+                        if (currItem.sellIn < 6) {
+                            if (currItem.quality < 50) {
+                                currItem.quality = currItem.quality + 1
                             }
                         }
                     }
                 }
             }
 
-            if (items[i].name != "Sulfuras") {
-                items[i].sellIn = items[i].sellIn - 1
+            if (currItem.name != "Sulfuras") {
+                currItem.sellIn = currItem.sellIn - 1
             }
 
-            if (items[i].sellIn < 0) {
-                if (items[i].name != "Aged Brie") {
-                    if (items[i].name != "Backstage passes") {
-                        if (items[i].quality > 0) {
-                            if (items[i].name != "Sulfuras") {
-                                items[i].quality = items[i].quality - 1
+            if (currItem.sellIn < 0) {
+                if (currItem.name != "Aged Brie") {
+                    if (currItem.name != "Backstage passes") {
+                        if (currItem.quality > 0) {
+                            if (currItem.name != "Sulfuras") {
+                                currItem.quality = currItem.quality - 1
                             }
                         }
                     } else {
-                        items[i].quality = items[i].quality - items[i].quality
+                        currItem.quality = currItem.quality - currItem.quality
                     }
                 } else {
-                    if (items[i].quality < 50) {
-                        items[i].quality = items[i].quality + 1
+                    if (currItem.quality < 50) {
+                        currItem.quality = currItem.quality + 1
                     }
                 }
             }
