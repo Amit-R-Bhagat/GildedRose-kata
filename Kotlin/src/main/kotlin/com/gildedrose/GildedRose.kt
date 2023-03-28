@@ -2,7 +2,7 @@ package com.gildedrose
 
 class GildedRose(var items: List<Item>) {
 
-    fun updateQuality() {
+    fun update() {
         for (currItem in items) {
             if (isItemSpecial(currItem)) {
                 if (currItem.quality > 0) {
@@ -30,9 +30,7 @@ class GildedRose(var items: List<Item>) {
                 }
             }
 
-            if (currItem.name != "Sulfuras") {
-                currItem.sellIn = currItem.sellIn - 1
-            }
+            updateSellIn(currItem)
 
             if (currItem.sellIn < 0) {
                 if (currItem.name != SpecialItem.AGED_BRIE.itemName) {
@@ -51,6 +49,12 @@ class GildedRose(var items: List<Item>) {
                     }
                 }
             }
+        }
+    }
+
+    private fun updateSellIn(currItem: Item) {
+        if (currItem.name != "Sulfuras") {
+            currItem.sellIn = currItem.sellIn - 1
         }
     }
 

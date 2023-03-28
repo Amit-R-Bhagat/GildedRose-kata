@@ -9,7 +9,7 @@ internal class GildedRoseTest {
         val items = listOf(Item("Elixir", 5, 10))
         val app = GildedRose(items)
 
-        app.updateQuality()
+        app.update()
 
         assertEquals(4, app.items[0].sellIn)
     }
@@ -19,7 +19,7 @@ internal class GildedRoseTest {
         val items = listOf(Item("Sulfuras", 5, 80))
         val app = GildedRose(items)
 
-        app.updateQuality()
+        app.update()
 
         assertEquals(5, app.items[0].sellIn)
     }
@@ -29,7 +29,7 @@ internal class GildedRoseTest {
         val items = listOf(Item("Elixir", 5, 10))
         val app = GildedRose(items)
 
-        app.updateQuality()
+        app.update()
 
         assertEquals(9,app.items[0].quality)
     }
@@ -39,7 +39,7 @@ internal class GildedRoseTest {
         val items = listOf(Item("Sulfuras", 5, 80))
         val app = GildedRose(items)
 
-        app.updateQuality()
+        app.update()
 
         assertEquals(80, app.items[0].quality)
     }
@@ -49,7 +49,7 @@ internal class GildedRoseTest {
         val items = listOf(Item("Aged Brie", 5, 10))
         val app = GildedRose(items)
 
-        app.updateQuality()
+        app.update()
 
         assertEquals(11, app.items[0].quality)
     }
@@ -59,7 +59,7 @@ internal class GildedRoseTest {
         val items = listOf(Item("Backstage passes", 12, 10))
         val app = GildedRose(items)
 
-        app.updateQuality()
+        app.update()
 
         assertEquals(11, app.items[0].quality)
     }
@@ -69,7 +69,7 @@ internal class GildedRoseTest {
         val items = listOf(Item("Backstage passes", 10, 10))
         val app = GildedRose(items)
 
-        app.updateQuality()
+        app.update()
 
         assertEquals(12, app.items[0].quality)
     }
@@ -79,7 +79,7 @@ internal class GildedRoseTest {
         val items = listOf(Item("Backstage passes",5,10))
         val app = GildedRose(items)
 
-        app.updateQuality()
+        app.update()
 
         assertEquals(13, app.items[0].quality)
     }
@@ -89,7 +89,7 @@ internal class GildedRoseTest {
         val items = listOf(Item("Backstage passes",0,10))
         val app = GildedRose(items)
 
-        app.updateQuality()
+        app.update()
 
         assertEquals(0, app.items[0].quality)
     }
@@ -99,7 +99,7 @@ internal class GildedRoseTest {
         val items = listOf(Item("Backstage passes", 4, 48))
         val app = GildedRose(items)
 
-        app.updateQuality()
+        app.update()
 
         assertEquals(50, app.items[0].quality)
     }
@@ -109,7 +109,7 @@ internal class GildedRoseTest {
         val items = listOf(Item("Elixir", 0, 10))
         val app = GildedRose(items)
 
-        app.updateQuality()
+        app.update()
 
         assertEquals(8, app.items[0].quality)
     }
