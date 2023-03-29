@@ -8,23 +8,24 @@ class GildedRose(var items: List<Item>) {
                 if (currItem.quality > 0) {
                     currItem.quality = currItem.quality - 1
                 }
-            } else {
-                if (currItem.name != LegendaryItem.SULFURAS.itemName) {
-                    currItem.quality = currItem.quality + 1
-
-                    if (currItem.name == SpecialItem.BACKSTAGE_PASSES.itemName) {
-                        if (currItem.sellIn < 11) {
-                            currItem.quality = currItem.quality + 1
-                        }
-
-                        if (currItem.sellIn < 6) {
-                            currItem.quality = currItem.quality + 1
-                        }
-
-                        currItem.quality = capQuantityAt(currItem.quality, 50)
-                    }
-                }
             }
+
+            if(isItemSpecial(currItem)){
+                currItem.quality = currItem.quality + 1
+                if (currItem.name == SpecialItem.BACKSTAGE_PASSES.itemName) {
+                    if (currItem.sellIn < 11) {
+                        currItem.quality = currItem.quality + 1
+                    }
+
+                    if (currItem.sellIn < 6) {
+                        currItem.quality = currItem.quality + 1
+                    }
+
+                }
+                currItem.quality = capQuantityAt(currItem.quality, 50)
+            }
+
+
 
             updateSellIn(currItem)
 
