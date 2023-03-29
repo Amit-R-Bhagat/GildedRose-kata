@@ -29,6 +29,6 @@ fun main(args: Array<String>) {
             println(item)
         }
         println()
-        app.update()
+        app.updateItems()
     }
 }
