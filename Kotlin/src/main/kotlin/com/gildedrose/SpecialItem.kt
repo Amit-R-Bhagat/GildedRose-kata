@@ -1,6 +1,8 @@
 package com.gildedrose
 
-enum class SpecialItem(val itemName: String) {
-    AGED_BRIE("Aged Brie"),
-    BACKSTAGE_PASSES("Backstage passes")
+class SpecialItem(name: String, sellIn: Int, quality: Int): Item(name, sellIn, quality) {
+    override fun accept(itemQualityUpdater: ItemQualityUpdater) {
+        itemQualityUpdater.update(this)
+    }
+
 }
