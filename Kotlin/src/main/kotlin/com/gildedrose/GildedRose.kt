@@ -28,22 +28,17 @@ class GildedRose(var items: List<Item>) {
         }
 
         if (isItemBackstage(item)) {
-            if (item.sellIn < 11) {
-                item.quality = item.quality + 1
-            }
-
-            if (item.sellIn < 6) {
-                item.quality = item.quality + 1
-            }
-
             if (item.sellIn < 0) {
                 item.quality = 0
+            }else if (item.sellIn in 6..10) {
+                item.quality = item.quality + 1
+            }else if (item.sellIn < 6) {
+                item.quality = item.quality + 2
             }
-
         }
 
         if (!isItemLegendary(item)) {
-            item.quality = capQuantityAt(item.quality, 50)
+            item.quality = capQuantity(item.quality)
         }
 
     }
@@ -58,7 +53,7 @@ class GildedRose(var items: List<Item>) {
         return (item.name == SpecialItem.AGED_BRIE.itemName || item.name == SpecialItem.BACKSTAGE_PASSES.itemName)
     }
 
-    private fun capQuantityAt(value: Int, limit: Int): Int {
+    private fun capQuantity(value: Int, limit: Int = QUANTITY_LIMIT): Int {
         if (value > limit) return limit
         return value
     }
