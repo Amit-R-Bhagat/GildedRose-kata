@@ -10,7 +10,7 @@ class GildedRose(var items: List<Item>) {
                 }
             }
 
-            if(isItemSpecial(currItem)){
+            if (isItemSpecial(currItem)) {
                 currItem.quality = currItem.quality + 1
                 if (currItem.name == SpecialItem.BACKSTAGE_PASSES.itemName) {
                     if (currItem.sellIn < 11) {
@@ -30,25 +30,27 @@ class GildedRose(var items: List<Item>) {
             updateSellIn(currItem)
 
             if (currItem.sellIn < 0) {
-                if (currItem.name != SpecialItem.AGED_BRIE.itemName) {
-                    if (currItem.name != SpecialItem.BACKSTAGE_PASSES.itemName) {
-                        if (currItem.quality > 0) {
-                            if (currItem.name != "Sulfuras") {
-                                currItem.quality = currItem.quality - 1
-                            }
-                        }
-                    } else {
-                        currItem.quality = 0
-                    }
-                } else {
-                    if (currItem.name != LegendaryItem.SULFURAS.itemName) {
-                        currItem.quality = currItem.quality + 1
-                    }
+
+
+                if (isItemNormal(currItem)) {
+                    currItem.quality = currItem.quality - 1
+                }
+
+                if (isItemBackstage(currItem)) {
+                    currItem.quality = 0
+                }
+
+                if (isItemAgedBrie(currItem)) {
+                    currItem.quality = currItem.quality + 1
                     currItem.quality = capQuantityAt(currItem.quality, 50)
                 }
             }
         }
     }
+
+    private fun isItemAgedBrie(currItem: Item) = currItem.name == SpecialItem.AGED_BRIE.itemName
+
+    private fun isItemBackstage(currItem: Item) = currItem.name == SpecialItem.BACKSTAGE_PASSES.itemName
 
     private fun isItemNormal(currItem: Item) = !isItemSpecial(currItem) && !isItemLegendary(currItem)
 
