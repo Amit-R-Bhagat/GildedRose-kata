@@ -10,13 +10,11 @@ class GildedRose(var items: List<Item>) {
     }
 
     private fun updateItem(item: Item) {
-        item.sellIn -= 1
-        item.accept(itemQualityUpdater)
-
         if (item.name != "Sulfuras") {
+            item.sellIn -= 1
+            item.updateWith(itemQualityUpdater)
             item.quality = capQuality(item)
         }
-
     }
 
     private fun capQuality(item: Item, limit: Int = QUANTITY_LIMIT): Int {

@@ -11,10 +11,6 @@ class ItemQualityUpdater {
         }
     }
 
-    fun update(item: LegendaryItem) {
-
-    }
-
     fun update(item: SpecialItem) {
         item.quality += 1
 

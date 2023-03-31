@@ -1,0 +1,12 @@
+I have made the following changes to the original code:
+
+1. Created a base class `UpdatableItem` as an abstract class having pure virtual methods to update an item's quality, sellIn and handle the expired items.
+2. Separated each item update functionality into separate classes i.e., `AgedBrie`, `BackstagePass`, `Sulfuras`, and `CommonItem`.
+3. Explicitly defined the class that should be created for an item based on the item name using a switch statement.
+4. The newly created classes inherited from the `UpdatableItem` class and implemented methods that were previously found in the `GildedRose` class. This made the code more modular and easy to maintain.
+5. Refactored the `GildedRose` class to use an `UpdatableItem` array instead of the `Item` array so that the `update` method for each item can easily be called.
+6. Introduced getter and setters in the `Item` class, which allowed me to encapsulate the state of item instead of making the state public, which promotes data hiding and easier management of the properties.
+7. I have kept the code DRY, meaning "Don't Repeat Yourself" and avoided code duplication. Each code segment is responsible for its specific purpose and the others are not interfering with it.
+8. Applied the KISS principle, meaning "Keep It Simple, Silly." I have trimmed down the length of UpdateQuality method and each code snippet has a single responsibility. 
+9. I have also made the code testable with the use of polymorphism and decoupled most of the logic from the main class which resulted in more maintainability and readability of the code.
+10. Finally, I have made the code comply with SOLID principles by separating the code into smaller reusable classes, making the code modular, promoting object-oriented design, and flexibility for future changes.
